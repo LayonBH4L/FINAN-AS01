@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultoria Financeira</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="logo">
+        <h1>Consultoria Financeira</h1>
+        <p>Transforme sua vida financeira com as melhores ferramentas.</p>
+        <div class="navbar-logo">
+            <img src="https://files.oaiusercontent.com/file-AU6jCFKfhZAN8pfL7e39Aw?se=2025-02-28T21%3A27%3A13Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3D84721754-284b-4040-83f1-c0fe707e34ef.webp&sig=7IoUqZ/QgSDLJSZQ%2BU6XL1NOl252oNIhR4alloIqEjU%3D" alt="Logo Finance Vision"> w
+        </div>
+    </div>
+</header>
+
+<!-- Cabeçalho e Navegação -->
+<header>
+    <nav class="navbar">
+        <ul class="navbar-links">
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#servicos">Serviços</a></li>
+            <li><a href="#cartoes">Cartões</a></li>
+            <li><a href="#guias">Guias e Dicas</a></li>
+            <li><a href="#contato">Contato</a></li>
+            <li><a href="#artigos">Artigos</a></li> 
+            <li><a href="#calculadoras">Calculadoras</a></li>
+        </ul>
+    </nav>
+    <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</header>
+
+<!-- Seção Hero -->
+<section class="hero" id="inicio">
+    <div class="hero-content">
+        <h1>Transforme sua vida financeira</h1>
+        <p>Organize, invista e alcance seus objetivos financeiros com as melhores ferramentas.</p>
+        <a href="#calculadoras" class="cta-btn">Acesse as Calculadoras</a>
+    </div>
+</section>
+
+<!-- Serviços -->
+<section id="servicos" class="services">
+    <h2 class="section-title">Nossos Serviços</h2>
+    
+    <div class="service-card">
+        <h3>Análise de Investimentos</h3>
+        <p>Avaliação completa de seu portfólio de investimentos para maximizar seus lucros.</p>
+        <!-- Link para redirecionamento (pode ser uma página específica) -->
+        <a href="#analise-investimentos" class="botao">Saiba Mais</a>
+    </div>
+    
+    <div class="service-card">
+        <h3>Consultoria Financeira</h3>
+        <p>Consultoria personalizada para planejamento de sua vida financeira.</p>
+        <!-- Link para redirecionamento (pode ser uma página específica) -->
+        <a href="#consultoria-financeira" class="botao">Saiba Mais</a>
+    </div>
+    
+    <div class="service-card">
+        <h3>Planejamento de Aposentadoria</h3>
+        <p>Auxílio na criação de um plano de aposentadoria confortável e seguro.</p>
+        <!-- Link para redirecionamento (pode ser uma seção interna ou página) -->
+        <a href="#planejamento" class="botao">Saiba Mais</a>
+    </div>
+</section>
+
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabelas Econômicas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .tabelas {
+            text-align: center;
+            margin: 20px;
+        }
+        .tabelas h2 {
+            font-size: 1.8em;
+            color: #f5f5f5;
+        }
+        .tabelas-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap; /* Para ajustar em telas menores */
+            margin-top: 20px;
+        }
+        .tabela {
+            flex: 1;
+            max-width: 300px;
+            border: 1px solid #dfa1e7;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(247, 148, 148, 0.1);
+            background-color: #201d1d;
+        }
+        .tabela h3 {
+            margin-top: 0;
+            color: #dee8e8;
+        }
+        .tabela p {
+            font-size: 0.9em;
+            color: #555;
+        }
+        .tabela button {
+            background-color: #bd42b9;
+            color: rgb(59, 55, 55);
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+        .tabela button:hover {
+            background-color: hsl(289, 100%, 68%);
+        } 
+        #tabelaIGPM, #tabelaSELIC {
+            margin-top: 15px;
+            font-size: 0.85em;
+            text-align: left;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table th, table td {
+            border: 1px solid #030303;
+            padding: 8px;
+            text-align: center;
+        }
+        table th {
+            background-color: hsl(299, 55%, 40%);
+        }
+    </style>
+</head>
+<body>
+    <section class="tabelas">
+        <h2>Tabelas Econômicas e Trabalhistas</h2>
+        <div class="tabelas-container">
+            <div class="tabela">
+                <h3>Tabela IGPM</h3>
+                <p>Visualize as variações anuais e mensais do IGPM.</p>
+                <button onclick="fetchTabelaIGPM()">Visualizar</button>
+                <div id="tabelaIGPM">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ano</th>
+                                <th>Variação (%)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2023</td>
+                                <td>5.50</td>
+                            </tr>
+                            <tr>
+                                <td>2024</td>
+                                <td>4.80</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="tabela">
+                <h3>Tabela SELIC</h3>
+                <p>Acompanhe os índices históricos da taxa SELIC.</p>
+                <button onclick="fetchTabelaSELIC()">Visualizar</button>
+                <div id="tabelaSELIC">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ano</th>
+                                <th>Taxa Média (%)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2023</td>
+                                <td>13.75</td>
+                            </tr>
+                            <tr>
+                                <td>2024</td>
+                                <td>12.50</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+
+<section id="cartoes" class="cartoes">
+        <h2>Melhores Cartões</h2>
+        <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartões</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            display: flex;
+            gap: 20px; /* Espaçamento entre os cartões */
+        }
+        .cartao {
+            flex: 1; /* Faz com que os cartões tenham o mesmo tamanho */
+            border: 1px solid #030303;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 4px 6px rgba(179, 169, 169, 0.1);
+            background-color: hsl(299, 55%, 34%);
+        }
+        
+        .cartao h3 {
+            margin-top: 0;
+            color: #ffffff;
+        }
+        .cartao h4 {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="cartao">
+            <h3>Cartões Sem Anuidade</h3>
+            <p>Descubra os melhores cartões sem anuidade.</p>
+            <h4>1. Nubank</h4>
+            <p>Benefícios:</p>
+            <p>Controle completo pelo aplicativo.</p>
+            <p>Programa de recompensas (opcional e pago).</p>
+            <p>Sem tarifas ocultas.</p>
+
+            <h4>2. Banco Inter</h4>
+            <p>Benefícios:</p>
+            <p>Sem anuidade e tarifas.</p>
+            <p>Função múltipla (débito e crédito).</p>
+            <p>Saques gratuitos na rede Banco24Horas.</p>
+        </div>
+        <div class="cartao">
+            <h3>Cartões com Cashback</h3>
+            <p>Ganhe dinheiro de volta nas suas compras.</p>
+            <h4>1. Méliuz</h4>
+            <p>Benefícios:</p>
+            <p>Cashback em todas as compras.</p>
+            <p>Percentuais maiores em lojas parceiras.</p>
+            <p>Sem anuidade.</p>
+
+            <h4>2. PicPay Card</h4>
+            <p>Benefícios:</p>
+            <p>5% de cashback em compras feitas no app.</p>
+            <p>Sem anuidade.</p>
+            <p>Controle digital pelo aplicativo.</p>
+        </div>
+    </div>
+        
+        </div>
+    </section>
+    <!--Guias-->
+    <section id="guias" class="guias">
+        <h2>Guias e Dicas</h2>
+        <div class="guia">
+        <p><strong><h3>Pagar Boletos com Cartão:</strong></p></h3> Aprenda como usar o cartão de crédito para pagar boletos de maneira prática e segura.</p>
+        <p><strong><h4>para pagar boletos com cartão de crédito:</strong></h4></p>
+        <p>Acesse seu aplicativo bancário ou de cartão: Abra o aplicativo do seu banco ou da operadora do seu cartão de crédito.</p>
+        <p>Escolha a opção de pagar boleto: Dentro do aplicativo, procure pela opção de "Pagar Boleto" ou "Pagamentos".</p>
+        <p>Informe o código de barras ou número do boleto: Escaneie o código de barras do boleto ou insira manualmente o número do boleto.</p>
+        <p>Escolha o cartão de crédito como forma de pagamento: Selecione seu cartão de crédito como forma de pagamento do boleto.</p>
+        <p>Verifique as taxas de juros e condições: Antes de confirmar o pagamento, verifique as taxas de juros que podem ser aplicadas por essa operação. Muitas vezes, pagar boletos com cartão pode envolver uma taxa adicional.</p>
+        <p>Finalize o pagamento: Confirme os dados e finalize a transação. O pagamento será processado como uma compra no seu cartão de crédito.</p>
+        <p><strong>Observação:</strong> Lembre-se de que, ao pagar boletos com cartão de crédito, o valor pago será parcelado, e isso pode gerar encargos e juros dependendo das condições da operadora do cartão.</p>
+        </div>
+    
+        <div class="guia">
+            <p><strong><h3>Dia de Compra:</strong></h3> Descubra o melhor dia para realizar suas compras no cartão e aproveitar as promoções.</p>
+            <p><strong>Dicas sobre os melhores dias para realizar compras:</strong></p>
+            <p><strong>Segunda-feira:</strong> Muitas lojas oferecem descontos no início da semana para atrair consumidores. Vale a pena pesquisar por promoções específicas para esse dia.</p>
+            <p><strong>Quarta-feira:</strong> Algumas lojas oferecem promoções de meio de semana. Durante esse período, você pode encontrar descontos em produtos ou categorias específicas.</p>
+            <p><strong>Final de mês:</strong> O final de mês é um excelente momento para encontrar liquidações, principalmente em grandes varejistas. Muitas lojas querem liberar estoques e fazem descontos significativos.</p>
+            <p><strong>Datas promocionais específicas:</strong> Aproveite eventos como Black Friday, Cyber Monday e Dia dos Pais/Mães para realizar suas compras com descontos significativos.</p>
+            <p><strong>Sábado:</strong> Algumas lojas realizam promoções especiais de final de semana, principalmente no comércio local, para atrair consumidores.</p>
+            <p><strong>Como aproveitar ao máximo essas promoções:</strong></p>
+            <p>Fique atento aos e-mails de promoções e aplicativos de cupons, pois muitos informam as melhores ofertas de determinados dias. Pesquise antes de comprar. Compare preços e veja se realmente está fazendo uma boa compra. Use seu cartão de crédito com responsabilidade. Embora as promoções possam ser tentadoras, verifique se o seu orçamento comporta as compras.</p>
+        </div>
+    </section>
+
+    <section id="contato" class="contato">
+        <h2>Entre em Contato</h2>
+        <form id="contact-form">
+            <label for="nome">Seu Nome</label>
+            <input type="text" id="nome" required>
+            <label for="email">Seu E-mail</label>
+            <input type="email" id="email" required>
+            <label for="mensagem">Sua Mensagem</label>
+            <textarea id="mensagem" required></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
+
+
+
+<!-- Seção de artigos -->
+<section id="artigos" class="Artigos">
+    <h2 class="section-title">Últimos Artigos Financeiros</h2>
+    <div class="article">
+        <article class="card">
+            <img src="https://" alt="Imagem do Artigo" class="card-image">
+            <div class="card-content">
+                <h4 class="card-title">Compreendendo os Fundamentos de Investimentos</h4>
+                <p class="card-text">Investir é uma das formas mais eficazes de construir riqueza ao longo do tempo. No entanto, para ter sucesso, é fundamental compreender os conceitos básicos e as estratégias envolvidas. Este guia apresenta os principais pilares para quem deseja começar a investir.</p>
+                <a href="#artigo" class="card-link">Leia Mais</a>
+            </div>
+        </article>
+        <article class="card">
+            <img src="https://l1nq.com/ijlsZ/" alt="Imagem do Artigo" class="card-image">
+            <div class="card-content">
+                <h4 class="card-title">Como Planejar um Orçamento Eficaz</h4>
+                <p class="card-text">Um orçamento bem estruturado é a base para uma vida financeira equilibrada e segura. Ele permite que você controle suas finanças, evite dívidas desnecessárias e alcance seus objetivos financeiros de forma planejada. A seguir, confira dicas práticas para criar e gerenciar seu orçamento com eficiência</p>
+                <a href="#artigo2" class="card-link">Leia Mais</a>
+            </div>
+        </article>
+        <article class="card">
+            <img src="https://via.placeholder.com/400x200" alt="Imagem do Artigo" class="card-image">
+            <div class="card-content">
+                <h4 class="card-title">A Importância de um Fundo de Emergência</h4>
+                <p class="card-text">Ter um fundo de emergência é um dos pilares mais importantes para manter uma saúde financeira equilibrada. Ele é essencial para proteger sua vida financeira contra imprevistos que podem acontecer a qualquer momento. Seja uma perda repentina de emprego, um problema de saúde ou até mesmo um acidente inesperado, um fundo de emergência pode ser o que diferencia você de um grande estresse financeiro.</p>
+                <a href="#artigo3" class="card-link">Leia Mais</a>
+            </div>
+        </article>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+    </div>
+</footer>
+
+<!--Compreendendo os Fundamentos de Investimentos-->
+<section id="artigo" class="artigoss">
+    <h2>Noções Fundamentais de Investimento</h2>
+     <div class="artigoss">
+        <p><strong><h3> Construindo um Futuro Financeiro Sólido.</strong></h3></p>
+        <p><h4>Investir é fundamental para a construção de riqueza e a independência financeira. Embora o mundo dos investimentos possa parecer complexo, este artigo desvenda conceitos de investimento e oferece uma base para começar a investir de forma consciente e estratégica.</h4></p>
+        <p><h3>Por que investir é crucial?</h3></p>
+        <p><h4>Guardar dinheiro sem investir faz com que ele perca valor devido à inflação e limita seu potencial de crescimento financeiro. Investir permite que seu dinheiro trabalhe para você, oferecendo a oportunidade de obter retornos ao longo do tempo por meio de ativos como ações, títulos, imóveis e fundos mútuos. Investimentos bem-sucedidos podem aumentar seu patrimônio líquido, gerar renda passiva e ajudar a alcançar metas financeiras importantes.</h4></p>
+        <p><h4>O estudo "The Notion of Investment" de Jan Asmus Bischoff e Matthias Wühler oferece insights significativos sobre o investimento, explorando suas diversas dimensões no contexto do crescimento econômico e financeiro. Este artigo sintetiza as principais conclusões do estudo, destacando sua relevância para compreender o investimento atualmente.</h4></p>
+        <p><h4>Os autores argumentam que o investimento vai além da simples aquisição de ativos financeiros, abrangendo decisões e ações que alocam recursos escassos para promover o crescimento e a criação de valor. Isso pode incluir investimentos em ativos financeiros, capital humano, pesquisa e desenvolvimento, entre outros.</h4></p>
+        <p><h4>Bischoff e Wühler também enfatizam a importância do investimento como impulsionador do crescimento econômico, contribuindo para a produção, emprego e infraestrutura, essenciais para o desenvolvimento econômico. Além disso, destacam que o investimento produtivo pode gerar retornos significativos e sustentáveis a longo prazo, beneficiando não apenas os investidores, mas também a sociedade como um todo.</h4></p>    
+        <p><h4>Durante o estudo, os autores identificam desafios enfrentados pelos investidores, como a avaliação de risco e retorno, a alocação de recursos limitados, a escolha de estratégias de investimento adequadas e a gestão de ativos. Também destacam as complexidades do ambiente de investimento, incluindo fatores macroeconômicos, políticos e sociais que influenciam as decisões de investimento.</h4></p>
+        <p><h3>Aqui estão algumas noções básicas para investidores iniciantes:</h3></p>
+        <P><h4>• Definir objetivos financeiros: Antes de começar a investir, é crucial estabelecer metas financeiras, como comprar um carro, financiar a educação dos filhos, garantir a aposentadoria ou aumentar a riqueza ao longo do tempo.</h4></P>
+        <p><h4>• Avaliar a tolerância ao risco: A disposição de assumir riscos varia de pessoa para pessoa, e é essencial entender sua própria tolerância ao risco antes de escolher investimentos.</h4></p>
+        <p><h4>• Praticar a diversificação: Distribuir seus investimentos por diferentes tipos de ativos é fundamental para reduzir o risco.</h4></p>
+        <P><h4>• Considerar o horizonte de investimento: O período que você planeja manter seus investimentos é crucial para determinar sua estratégia.</h4></P>
+        <P><h4>• Investir em educação financeira: Aprender sobre diferentes tipos de investimentos, estratégias e princípios do mercado financeiro é essencial para tomar decisões informadas e fundamentadas. Quanto mais você souber, melhor.</h4></P> 
+        <p><h4>Esses conceitos essenciais servem como o ponto de partida para investidores iniciantes, mas representam apenas o início de sua trajetória no universo dos investimentos. À medida que você se aprofundar e adquirir experiência, terá a oportunidade de investigar estratégias mais sofisticadas e expandir ainda mais sua gama de investimentos. É importante manter em mente que o investimento é um processo em constante evolução, onde a paciência e a disciplina desempenham papéis cruciais na busca de seus objetivos financeiros de longo prazo.</h4></p>
+    </div>
+</section>
+
+<!--Como Planejar um Orçamento Eficaz-->
+<section id="artigo2" class="artigos2">
+    <h2>Como Planejar um Orçamento Simples e Eficaz</h2>
+     <div class="artigos2"> 
+         <p><strong><h3>Orçamento, Um Guia para sua Saúde Financeira.</h3></strong></p>
+        <p><h4>Controlar suas finanças é essencial para alcançar estabilidade financeira e realizar seus objetivos. Um orçamento pessoal é uma ferramenta poderosa para organizar receitas e despesas, garantindo que você esteja no controle do seu dinheiro. Veja como criá-lo em etapas práticas.</h4></p>
+        <p><strong><h3>Como Criar um Orçamento Pessoal Eficiente</h3></strong></p>
+        <p><h4>Agora que voçê já sabe por que precisa de um orçamento, vamos ao que interessa:como criá-lo! Aqui está um guia simple e prático para voçê montar o seu orçamento.</h4></p>
+        <p><h3>1. Compreenda a Importância de um Orçamento</h3></p> 
+        <p><h4>Antes de começar, é fundamental entender por que criar um orçamento é essencial para a sua vida financeira:</h4></p>
+        <p><h4>•Controle: Permite que você veja exatamente para onde seu dinheiro está indo.</h4></p>
+        <p><h4>•Planejamento: Ajuda a definir metas e prioridades financeiras.</h4></p>
+        <p><h4>•Economia: Facilita a identificação de desperdícios e oportunidades de poupança.</h4></p>
+        <p><h4>•Segurança: Garante que você esteja preparado para imprevistos e emergências.</h4></p>
+        <p><strong><h4>Dica prática: Pergunte a si mesmo: "O que quero conquistar com meu orçamento?" Ter uma motivação clara aumenta suas chances de sucesso.</h4></strong></p>
+        <p><h3>2. Descubra Sua Renda Total</h3></p>
+        <p><h4>Liste todas as suas fontes de renda, como salário líquido, rendas extras e ganhos passivos (aluguéis, dividendos, etc.). Saber exatamente quanto dinheiro entra é o ponto de partida para equilibrar despesas e poupar.</h4></p>
+        <p><h4>Exemplo:</h4></p>
+        <p><h4>•Salário líquido: R$ 4.000</h4></p>
+        <p><h4>•Freelance: R$ 1.000</h4></p>
+        <p><h4>•Renda total: R$ 5.000</h4></p>
+        <p><h3>3. Identifique e Classifique Seus Gastos</h3></p>
+        <p><h4>Divida suas despesas em três categorias:</h4></p>
+        <p><h4>•Essenciais: Moradia, alimentação, transporte e contas básicas.</h4></p>
+        <p><h4>•Variáveis: Lazer, compras e outros gastos que mudam mensalmente.</h4></p>
+        <p><h4>•Eventuais: Manutenção da casa, emergências médicas e presentes.</h4></p>
+        <p><strong><h4>Dica prática: Analise os últimos extratos bancários para não esquecer nenhum gasto.</h4></strong></p>
+        <p><h3>4. Calcule seu saldo</h3></p>
+        <p><h4>Agora que você tem suas receitas e despesas listadas, calcule seu saldo. Para isso, subtraia suas despesas totais de suas receitas totais. Se o resultado for positivo, você está em uma boa posição financeira. Se for negativo, isso indica que você precisará reavaliar seus gastos e fazer cortes.</h4></p>
+        <p><h3>5. Ajuste seu orçamento</h3></p>
+        <p><h4>Com o saldo em mãos, pode ser necessário realizar alguns ajustes. Se suas despesas estão superando suas receitas, identifique onde você pode cortar gastos. Considere modificar seus hábitos de consumo e encontre maneiras de economizar em áreas que não são essenciais.</h4></p>
+        <p><h3>6. Monitore e revise regularmente</h3></p>
+        <p><h4>Após criar e ajustar seu orçamento, o trabalho não termina. É fundamental monitorar regularmente seu orçamento para garantir que você está se mantendo dentro dos limites estabelecidos. Revise seu orçamento mensalmente e faça alterações sempre que necessário. Isso ajudará a adaptar seu planejamento financeiro a mudanças nas suas receitas e despesas.</h4></p>
+        <p><h3>A Transformação Acontece Quando Você Age</h3></p>
+        <p><h4>Seguir esses seis passos simples, mas poderosos, pode transformar sua vida financeira. Com um orçamento bem estruturado, você ganha controle sobre suas finanças, reduz o estresse financeiro e cria um futuro mais seguro.</h4></p>
+        <p><h4>Lembre-se, o orçamento não é algo rígido; ele deve ser adaptado às suas necessidades e objetivos. Reavalie e ajuste sempre que necessário. O importante é começar e manter a disciplina.</h4></p>
+        <p><h4>Dica final: O momento para começar é agora. Não espere o "momento perfeito". Com pequenos ajustes, você pode fazer grandes mudanças na sua vida financeira.</h4></p>
+        <p><h4>Boa sorte na sua jornada financeira! Com planejamento e determinação, você conquistará todos os seus objetivos!</h4></p>
+     </div>
+    </section>
+
+    <!--A Importância de um Fundo de Emergência-->
+    <section id="artigo3" class="artigos3">
+        <h2>A Importância de um Fundo de Emergência</h2>
+          <div class="artigos3">
+            <p><strong><h3>A Importância de um Fundo de Emergência</h3></strong></p>
+            <p><h4>Um fundo de emergência é um dos pilares fundamentais para garantir uma vida financeira estável e equilibrada. Ele atua como uma reserva destinada a cobrir despesas inesperadas, protegendo sua saúde financeira contra situações imprevistas que podem surgir a qualquer momento.</h4></p>
+            <P><h3>Por que ter um fundo de emergência?</h3></P>
+            <p><h4>Imprevistos fazem parte da vida e podem ocorrer sem aviso prévio. Situações como:</h4></p>
+            <p><h4>• Perda repentina de emprego: Uma demissão pode comprometer sua fonte principal de renda, mas um fundo de emergência pode sustentar suas despesas até que você encontre uma nova oportunidade.</h4></p>
+            <p><h4>• Problemas de saúde: Custos médicos inesperados podem ser altos, mesmo com planos de saúde. Uma reserva pode ajudar a cobrir essas despesas sem comprometer outras áreas da sua vida financeira.</h4></p>
+            <p><h4>• Acidentes e reparos: Um carro quebrado ou um reparo urgente na casa pode exigir um desembolso imediato que, sem uma reserva, poderia gerar dívidas.</h4></p>
+            <p><h4>Ter esse recurso pode significar a diferença entre enfrentar o problema com tranquilidade ou passar por um grande estresse financeiro.</h4></p>
+            <p><h3>Benefícios de um fundo de emergência</h3></p>
+            <p><h4>• Redução do estresse financeiro: A tranquilidade de saber que você está preparado para emergências permite que você lide melhor com os desafios da vida.</h4></p>
+            <P><h4>• Evita o endividamento: Um fundo de emergência elimina a necessidade de recorrer a empréstimos ou cartões de crédito, que podem ter juros altos e gerar problemas futuros.</h4></P>
+            <p><h4>• Proteção das metas financeiras: Ele impede que você precise desviar recursos destinados a investimentos ou planos de longo prazo.</h4></p>
+            <p><h4>• Flexibilidade para tomar decisões: Caso você perca seu emprego, por exemplo, ter um fundo de emergência permite que você busque uma nova posição com calma, sem pressão financeira imediata.</h4></p>
+            <p><h3>Como construir um fundo de emergência</h3></p>
+            <p><strong><h4>Calcule o valor ideal</h4></strong></p>
+            <p><h4>• O tamanho do seu fundo de emergência deve refletir sua situação financeira e necessidades pessoais. Uma regra geral é economizar o equivalente a três a seis meses de despesas fixas. Pessoas com empregos instáveis ou sem fontes de renda extras podem optar por um fundo maior, enquanto aquelas com maior estabilidade podem considerar valores mais modestos.</h4></p>
+            <P><strong><h4>Estabeleça um objetivo mensal</h4></strong></P>
+            <p><h4>• Reserve uma porcentagem do seu rendimento mensal para o fundo. Mesmo pequenas contribuições consistentes podem somar valores significativos ao longo do tempo. Automatizar essa poupança pode ajudar a garantir disciplina.</h4></p>
+            <p><strong><h4>Escolha o lugar certo para guardar</h4></strong></p>
+            <p><h4>• Seu fundo deve estar acessível em caso de necessidade. Opte por aplicações financeiras de alta liquidez e baixo risco, como:</h4></p>
+            <p><h4>• Conta poupança;</h4></p>
+            <p><h4>• Fundos de renda fixa de curto prazo;</h4></p>
+            <p><h4>• Contas digitais com rendimento automáticp</h4></p>
+            <p><strong><h4>Reavalie periodicamente</h4></strong></p>
+            <p><h4>Conforme suas despesas ou situações mudam, ajuste o tamanho do seu fundo para garantir que ele continue adequado às suas necessidades.</h4></p>
+            <p><strong><h4>Dicas para manter o fundo de emergência intacto</h4></strong></p>
+            <p><h4>• Evite utilização indevida: O fundo deve ser usado exclusivamente para emergências reais, não para compras ou gastos não essenciais.</h4></p>
+            <p><h4>• Reponha após o uso**: Caso precise utilizá-lo, faça da reposição do fundo uma prioridade em seu planejamento financeiro. </h4></p>
+          </div>
+    </section>
+
+    <!--Calculadoras-->
+<section id="calculadoras" class="calculadoras">
+    <!-- Calculadora 13º -->
+    <div class="calculadora-box">
+        <div class="icon">
+            <i class="fas fa-calendar-alt"></i> <!-- Ícone para 13º -->
+        </div>
+        <h3>Calculadora de 13º</h3>
+        <p>Calcule o valor do seu 13º salário com facilidade.</p>
+        <input type="number" id="salario13" placeholder="Salário Mensal (R$)" min="0">
+        <input type="number" id="mesesTrabalhados" placeholder="Meses Trabalhados" min="0">
+        <button onclick="calcular13()">Calcular</button>
+        <p id="resultado13"></p>
+    </div>
+
+    <!-- Calculadora de Férias -->
+    <div class="calculadora-box">
+        <div class="icon">
+            <i class="fas fa-sun"></i> <!-- Ícone para Férias -->
+        </div>
+        <h3>Calculadora de Férias</h3>
+        <p>Simule o valor das suas férias com base no seu salário.</p>
+        <input type="number" id="salarioFerias" placeholder="Salário Mensal (R$)" min="0">
+        <input type="number" id="diasFerias" placeholder="Dias de Férias" min="0">
+        <button onclick="calcularFerias()">Calcular</button>
+        <p id="resultadoFerias"></p>
+    </div>
+
+
+    <!-- Calculadora de Rescisão CLT -->
+    <div class="calculadora-box">
+        <div class="icon">
+            <i class="fas fa-briefcase"></i> <!-- Ícone para Rescisão CLT -->
+        </div>
+        <h3>Cálculo de Rescisão CLT</h3>
+        <p>Calcule a sua rescisão de contrato de trabalho.</p>
+        <input type="number" id="salarioRescisao" placeholder="Salário Mensal (R$)" min="0">
+        <input type="number" id="tempoEmpresa" placeholder="Tempo de Empresa (Meses)" min="0">
+        <input type="number" id="avisoPrevio" placeholder="Aviso Prévio (dias)" min="0">
+        <input type="number" id="fgtsSaldo" placeholder="Saldo FGTS (R$)" min="0">
+        <button onclick="calcularRescisao()">Calcular</button>
+        <p id="resultadoRescisao"></p>
+    </div>
+    
+    <!-- Calculadora de Juros Compostos -->
+    <div class="calculadora-box">
+        <div class="icon">
+            <i class="fas fa-percent"></i> <!-- Ícone para Juros Compostos -->
+        </div>
+        <h3>Juros Compostos</h3>
+        <p>Calcule o rendimento de investimentos com juros compostos.</p>
+        <input type="number" id="capitalInicial" placeholder="Capital Inicial (R$)" min="0">
+        <input type="number" id="taxaJuros" placeholder="Taxa de Juros (%)" min="0">
+        <input type="number" id="periodoMeses" placeholder="Período (meses)" min="0">
+        <button onclick="calcularJuros()">Calcular</button>
+        <p id="resultadoJuros"></p>
+    </div>
+</section>
+
+<script src="script.js"></script> <!-- Arquivo JavaScript -->
+
+
+                </form>
+                <p id="resultadoRescisao"></p>
+            </div>
+        </div>
+
+        
+    </section>
+
+    <section id="planejamento" class="calculadoras">
+        
+        
+        <!-- Calculadora de FGTS -->
+        <div class="calculadora-box">
+            <div class="icon">
+                <i class="fas fa-piggy-bank"></i>
+            </div>
+            <h3>Calculadora de FGTS</h3>
+            <p>Descubra o saldo acumulado de FGTS com base no seu salário.</p>
+            <input type="number" id="salarioFgts" placeholder="Salário Mensal (R$)" min="0">
+            <input type="number" id="mesesFgts" placeholder="Meses Contribuídos" min="0">
+            <button onclick="calcularFgts()">Calcular</button>
+            <p id="resultadoFgts"></p>
+        </div>
+    
+        <!-- Calculadora de Poupança -->
+        <div class="calculadora-box">
+            <div class="icon">
+                <i class="fas fa-university"></i>
+            </div>
+            <h3>Calculadora de Poupança</h3>
+            <p>Simule o rendimento da poupança ao longo do tempo.</p>
+            <input type="number" id="valorPoupanca" placeholder="Valor Inicial (R$)" min="0">
+            <input type="number" id="taxaPoupanca" placeholder="Taxa de Rendimento (% ao mês)" min="0">
+            <input type="number" id="mesesPoupanca" placeholder="Período (meses)" min="0">
+            <button onclick="calcularPoupanca()">Calcular</button>
+            <p id="resultadoPoupanca"></p>
+        </div>
+    
+        <!-- Calculadora de Financiamento -->
+        <div class="calculadora-box">
+            <div class="icon">
+               <i class="fas fa-home"></i>
+            </div>
+            <h3>Calculadora de Financiamento</h3>
+            <p>Calcule o valor das parcelas do seu financiamento.</p>
+            <input type="number" id="valorFinanciamento" placeholder="Valor Total (R$)" min="0">
+            <input type="number" id="taxaFinanciamento" placeholder="Taxa de Juros (% ao mês)" min="0">
+            <input type="number" id="parcelasFinanciamento" placeholder="Número de Parcelas" min="0">
+            <button onclick="calcularFinanciamento()">Calcular</button>
+            <p id="resultadoFinanciamento"></p>
+         </div>
+
+        <!-- Calculadora de FIRE -->
+        <div class="calculadora-box">
+            <div class="icon">
+               <i class="fas fa-fire"></i> <!-- Ícone FIRE -->
+            </div>
+            <h3>Calculadora de FIRE</h3>
+            <p>Descubra quanto tempo levará para alcançar sua independência financeira e também sua aposentadoria.</p>
+            <input type="number" id="despesaAnual" placeholder="Despesa Anual Planejada (R$)" min="0">
+            <input type="number" id="poupancaMensal" placeholder="Poupança Mensal (R$)" min="0">
+            <input type="number" id="taxaRendimento" placeholder="Taxa de Rendimento (% ao ano)" min="0">
+            <input type="number" id="saldoAtual" placeholder="Saldo Atual de Investimentos (R$)" min="0">
+            <button onclick="calcularFIRE()">Calcular</button>
+            <p id="resultadoFIRE"></p>
+    </div>
+</section>       
+    
+ <!--Compreendendo os Fundamentos de Investimentos-->
+<section id="analise-investimentos" class="analise-investimentos1">
+    <h2>Analise de investimentos</h2>
+     <div class="analise-investimentos1">
+        <p><strong><h3>Como Analisar Seus Investimentos</h3></strong></p>
+        <p><h4>Analisar seus investimentos é uma prática essencial para garantir que seu dinheiro esteja trabalhando a seu favor. Isso envolve avaliar se os ativos da sua carteira estão alinhados aos seus objetivos financeiros, ao seu perfil de investidor e ao cenário econômico atual. Este artigo explora como você pode realizar essa análise de forma eficient</h4></p>
+        <p><h3>Por que Analisar Seus Investimentos é Importante?</h3></p>
+        <p><h4>Investimentos sem análise podem levar a perdas significativas ou a um desempenho abaixo do esperado. Ao revisar seus investimentos regularmente, você pode:</h4></p>
+        <p><h4>• Garantir que seus ativos estão alinhados aos seus objetivos financeiros;</h4></p>
+        <p><h4>• Identificar custos que possam estar reduzindo seus retornos;</h4></p>
+        <p><h4>• Ajustar sua carteira para reduzir riscos ou aumentar potencial de retorno;</h4></p>
+        <p><h4>• Manter-se atualizado com as condições do mercado e as mudanças na sua própria situação financeira.</h4></p>
+        <p><strong><h3>Passos para Analisar Seus Investimentos</h3></strong></p>
+        <P><h3>1. Defina Seus Objetivos Financeiros</h3></P>
+        <p><h4>Antes de iniciar a análise, é crucial saber o que você quer alcançar. Você está investindo para a aposentadoria? Para comprar um imóvel? Ou para ter uma reserva de emergência? Objetivos diferentes exigem estratégias e ativos distintos.</h4></p>
+        <p><h3>2. Conheça Seu Perfil de Investidor</h3></p>
+        <P><h4>Seu perfil de investidor determina sua tolerância ao risco e influencia as escolhas de investimento. Pergunte-se: você é conservador, moderado ou arrojado? Essa informação é fundamental para alinhar os investimentos à sua realidade.</h4></P>
+        <p><h3>3. Avalie a Rentabilidade</h3></P>
+        <P><h4>Compare o desempenho dos seus investimentos com benchmarks relevantes, como o CDI, IPCA ou índices de mercado. Isso ajuda a identificar se o retorno está dentro do esperado ou se há espaço para melhorias.</h4></P>
+        <P><h3>4. Analise os Custos</h3></P>
+        <P><h4>Taxas de administração, performance e impostos podem reduzir seus ganhos. Certifique-se de que os custos estão proporcionais ao retorno oferecido por cada ativo.</h4></P>
+        <P><h3>5. Verifique a Diversificação</h3></P>
+        <p><h4>Uma carteira diversificada reduz os riscos e aumenta a estabilidade. Certifique-se de que seus investimentos estão distribuídos entre diferentes classes de ativos, como ações, renda fixa e fundos imobiliários.</h4></p>
+        <p><h3>6. Considere os Riscos</h3></p>
+        <p><h4>Cada investimento tem seus próprios riscos, como volatilidade, liquidez e fatores macroeconômicos. Avalie se esses riscos estão alinhados ao seu perfil e se você está preparado para enfrentá-los.</h4></p>
+        <p><h3>7. Monitore Regularmente</h3></p>
+        <p><h4>O mercado está em constante mudança, assim como suas necessidades financeiras. Revise sua carteira periodicamente para realizar ajustes necessários, como a substituição de ativos com desempenho insatisfatório ou a realocação de recursos para oportunidades mais promissoras.</h4></p>
+        <p><h3>Ferramentas para Análise de Investimentos</h3></p>
+        <p><h4>• Simuladores de Investimento: Compare diferentes opções e veja qual atende melhor aos seus objetivos.</h4></p>
+        <p><h4>• Relatórios Financeiros: .Utilize relatórios de corretoras e instituições financeiras para entender melhor o desempenho de seus ativo</h4></p>
+        <p><h4>• Aplicativos de Gestão: Ferramentas digitais permitem acompanhar sua carteira em tempo real e identificar oportunidades de otimização.</h4></p>
+    </div>
+</section>
+<!--Analisador de Portfólio de Investimentos-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analisador de Portfólio de Investimentos</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Analisador de Portfólio de Investimentos</h1>
+
+    <div class="calculadora-box22">
+        <div class="icon">
+            <i class="fas fa-chart-line"></i> 
+        </div>
+        <h3>Analisador de Portfólio</h3>
+        <p>Informe seus investimentos e visualize o desempenho e a diversificação.</p>
+        
+        <!-- Campos de entrada para investimentos -->
+        <div id="investimentos">
+            <div class="investimento">
+                <label for="ativo">Ativo:</label>
+                <input type="text" id="ativo1" class="ativo" placeholder="Exemplo: Ação X">
+
+                <label for="valor">Valor Investido:</label>
+                <input type="number" id="valor1" class="valor" placeholder="Valor em R$">
+
+                <label for="rentabilidade">Rentabilidade (%):</label>
+                <input type="number" id="rentabilidade1" class="rentabilidade" placeholder="Rentabilidade do Ativo">
+                
+                <label for="risco">Risco do Ativo (1-10):</label>
+                <input type="number" id="risco1" class="risco" placeholder="Classificação de Risco">
+            </div>
+        </div>
+
+        <!-- Campos para aportes mensais, rentabilidade futura e impostos -->
+        <div>
+            <label for="aporteMensal">Aporte Mensal (R$):</label>
+            <input type="number" id="aporteMensal" placeholder="Valor Mensal a ser Investido">
+
+            <label for="anosProjecao">Número de Anos para Projeção:</label>
+            <input type="number" id="anosProjecao" placeholder="Ex: 5 anos">
+
+            <label for="impostoCapital">Imposto sobre Ganhos de Capital (%):</label>
+            <input type="number" id="impostoCapital" placeholder="Imposto sobre o lucro" value="15">
+        </div>
+
+        <!-- Botões para adicionar investimentos e calcular -->
+        <button onclick="adicionarInvestimento()">Adicionar Investimento</button>
+        <button onclick="calcularPortifolio()">Calcular Análise</button>
+
+        <!-- Resultados -->
+        <p id="rentabilidadeTotal"></p>
+        <p id="diversificacao"></p>
+    </div>
+
+    <div class="grafico-box">
+        <h3>Gráficos de Rentabilidade e Diversificação</h3>
+        <canvas id="graficoRentabilidade"></canvas>
+        <canvas id="graficoDiversificacao"></canvas>
+        <canvas id="graficoEvolucao"></canvas> <!-- Gráfico de evolução -->
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
+
+<section id="consultoria-financeira" class="consultoria">
+    <h2>Consultoria Financeira</h2>
+    <p>Receba uma <strong>consultoria personalizada</strong> para planejar sua vida financeira. Nosso serviço é projetado para ajudar você a atingir seus objetivos e construir um futuro financeiro sólido.</p>
+    
+    <div class="beneficios-consultoria">
+      <h3>Por que escolher nossa consultoria?</h3>
+      <ul>
+        <p><h4>• Planejamento financeiro sob medida para suas necessidades</h4></p>
+        <p><h4>• Intificação de metas de curto, médio e longo prazo</h4></p>
+        <p><h4>• Estratégias de investimento personalizadas</h4></p>
+        <p><h4>• Redução de dívidas e otimização de gastos</h4></p>
+        <p><h4>• Orientação sobre aposentadoria, seguros e gestão de riscos</h4></p>
+      </ul>
+    </div>
+  
+    <div class="cta-consultoria">
+      <p><strong>Invista no seu futuro!</strong> Entre em contato conosco para agendar uma avaliação inicial gratuita.</p>
+      <button onclick="window.location.href='#contato'">Solicitar Consultoria</button>
+    </div>
+  </section>
+  
