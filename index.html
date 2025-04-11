@@ -709,4 +709,97 @@
       <button onclick="window.location.href='#contato'">Solicitar Consultoria</button>
     </div>
   </section>
-  
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Financeiro</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="icon">💰</div>
+    <h1>Dashboard Financeiro</h1>
+
+    <div class="balance">
+      Saldo Atual: <span id="balance">R$ 0,00</span>
+    </div>
+
+    <div class="summary">
+      <div>
+        <h3>Receitas</h3>
+        <span id="income">R$ 0,00</span>
+      </div>
+      <div>
+        <h3>Despesas</h3>
+        <span id="expenses">R$ 0,00</span>
+      </div>
+    </div>
+
+    <div class="filter">
+      <select id="categoryFilter">
+        <option value="">Todas Categorias</option>
+        <option value="Alimentação">Alimentação</option>
+        <option value="Transporte">Transporte</option>
+        <option value="Lazer">Lazer</option>
+        <option value="Outros">Outros</option>
+      </select>
+      <select id="typeFilter">
+        <option value="">Todos Tipos</option>
+        <option value="income">Receitas</option>
+        <option value="expense">Despesas</option>
+      </select>
+      <button onclick="filterTransactions()">Filtrar</button>
+    </div>
+
+    <div class="transactions">
+      <h3>Transações</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Descrição</th>
+            <th>Categoria</th>
+            <th>Tipo</th>
+            <th>Valor</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody id="transaction-list">
+          <tr>
+            <td colspan="5" style="text-align: center; color: #999;">Sem transações</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="add-transaction">
+      <input type="text" id="description" placeholder="Descrição">
+      <input type="number" id="amount" placeholder="Valor">
+      <select id="category">
+        <option value="">Selecione Categoria</option>
+        <option value="Alimentação">Alimentação</option>
+        <option value="Transporte">Transporte</option>
+        <option value="Lazer">Lazer</option>
+        <option value="Outros">Outros</option>
+        <option value="Nova">Nova Categoria...</option>
+      </select>
+      <select id="type">
+        <option value="income">Receita</option>
+        <option value="expense">Despesa</option>
+      </select>
+      <button onclick="addTransaction()">Adicionar</button>
+    </div>
+
+    <div class="chart-container">
+      <canvas id="transactionChart"></canvas>
+    </div>
+
+    <button onclick="exportData()">Exportar Dados</button>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
+
