@@ -351,8 +351,8 @@ function updateBalance() {
 function renderTransactions() {
   const tbody = document.getElementById("transaction-list");
   tbody.innerHTML = transactions.length
-    ? transactions.map((t, i) => `
-      <tr>
+    ? transactions.map((t, i) =>
+      `<tr>
         <td>${t.description}</td>
         <td>${t.category}</td>
         <td>${t.type === "income" ? "Receita" : "Despesa"}</td>
@@ -370,18 +370,17 @@ function deleteTransaction(index) {
 }
 
 function addTransaction() {
-  const description = document.getElementById("description").value.trim();
+  const description = document.getElementById("description").value;
   const amount = parseFloat(document.getElementById("amount").value);
-  const category = document.getElementById("category").value.trim();
+  const category = document.getElementById("category").value;
   const type = document.getElementById("type").value;
 
-  if (!description || isNaN(amount) || amount <= 0 || !category || !type) {
-    alert("Preencha todos os campos corretamente!");
+  if (!description || !amount || !category || !type) {
+    alert("Preencha todos os campos!");
     return;
   }
 
   transactions.push({ description, amount, category, type });
-
   updateBalance();
   renderTransactions();
   updateChart();
@@ -428,13 +427,13 @@ function filterTransactions() {
 function renderFilteredTransactions(filteredTransactions) {
   const tbody = document.getElementById("transaction-list");
   tbody.innerHTML = filteredTransactions.length
-    ? filteredTransactions.map((t, i) => `
-      <tr>
+    ? filteredTransactions.map((t, i) =>
+      `<tr>
         <td>${t.description}</td>
         <td>${t.category}</td>
         <td>${t.type === "income" ? "Receita" : "Despesa"}</td>
         <td>R$ ${t.amount.toFixed(2)}</td>
-        <td><button onclick="deleteTransaction(${transactions.indexOf(t)})">Excluir</button></td>
+        <td><button onclick="deleteTransaction(${i})">Excluir</button></td>
       </tr>`).join("")
     : `<tr><td colspan="5" style="text-align: center; color: #999;">Sem transações</td></tr>`;
 }
