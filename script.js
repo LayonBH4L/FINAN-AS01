@@ -331,122 +331,115 @@ function gerarGraficoEvolucao(evolucao, anos) {
     });
 }
 
-const transactions = [];
-const transactionChart = document.getElementById("transactionChart").getContext("2d");
-let chart = null;
+let transactions = JSON.parse(localStorage.getItem('transactions')) || [];
 
-function updateBalance() {
-  const income = transactions
-    .filter(t => t.type === "income")
-    .reduce((sum, t) => sum + t.amount, 0);
-  const expenses = transactions
-    .filter(t => t.type === "expense")
-    .reduce((sum, t) => sum + t.amount, 0);
-
-  document.getElementById("income").textContent = `R$ ${income.toFixed(2)}`;
-  document.getElementById("expenses").textContent = `R$ ${expenses.toFixed(2)}`;
-  document.getElementById("balance").textContent = `R$ ${(income - expenses).toFixed(2)}`;
+function formatCurrency(value) {
+  return new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL'
+  }).format(value);
 }
 
-function renderTransactions() {
-  const tbody = document.getElementById("transaction-list");
-  tbody.innerHTML = transactions.length
-    ? transactions.map((t, i) =>
-      `<tr>
-        <td>${t.description}</td>
-        <td>${t.category}</td>
-        <td>${t.type === "income" ? "Receita" : "Despesa"}</td>
-        <td>R$ ${t.amount.toFixed(2)}</td>
-        <td><button onclick="deleteTransaction(${i})">Excluir</button></td>
-      </tr>`).join("")
-    : `<tr><td colspan="5" style="text-align: center; color: #999;">Sem transações</td></tr>`;
-}
+function updateSummary() {
+  const income = transactions.filter(t => t.type === 'income').reduce((acc, curr) => acc + curr.amount, 0);
+  const expenses = transactions.filter(t => t.type === 'expense').reduce((acc, curr) => acc + curr.amount, 0);
+  const balance = income - expenses;
 
-function deleteTransaction(index) {
-  transactions.splice(index, 1);
-  updateBalance();
-  renderTransactions();
+  document.getElementById('balance').textContent = formatCurrency(balance);
+  document.getElementById('income').textContent = formatCurrency(income);
+  document.getElementById('expenses').textContent = formatCurrency(expenses);
+
   updateChart();
 }
 
 function addTransaction() {
-  const description = document.getElementById("description").value;
-  const amount = parseFloat(document.getElementById("amount").value);
-  const category = document.getElementById("category").value;
-  const type = document.getElementById("type").value;
+  const description = document.getElementById('description').value;
+  const amount = parseFloat(document.getElementById('amount').value);
+  const category = document.getElementById('category').value;
+  const type = document.getElementById('type').value;
 
   if (!description || !amount || !category || !type) {
-    alert("Preencha todos os campos!");
+    alert('Por favor, preencha todos os campos.');
     return;
   }
 
-  transactions.push({ description, amount, category, type });
-  updateBalance();
-  renderTransactions();
-  updateChart();
+  const transaction = { description, amount, category, type };
+  transactions.push(transaction);
+  localStorage.setItem('transactions', JSON.stringify(transactions));
 
-  document.getElementById("description").value = "";
-  document.getElementById("amount").value = "";
-  document.getElementById("category").value = "";
-  document.getElementById("type").value = "";
+  updateSummary();
+  renderTransactions();
+
+  document.getElementById('description').value = '';
+  document.getElementById('amount').value = '';
+  document.getElementById('category').value = '';
+  document.getElementById('type').value = '';
+}
+
+function renderTransactions() {
+  const transactionList = document.getElementById('transaction-list');
+  transactionList.innerHTML = '';
+
+  if (transactions.length === 0) {
+    transactionList.innerHTML = '<tr><td colspan="5" style="text-align: center; color: #999;">Sem transações</td></tr>';
+    return;
+  }
+
+  transactions.forEach((t, index) => {
+    const row = document.createElement('tr');
+
+    row.innerHTML = `
+      <td>${t.description}</td>
+      <td>${t.category}</td>
+      <td>${t.type === 'income' ? 'Receita' : 'Despesa'}</td>
+      <td>${formatCurrency(t.amount)}</td>
+      <td><button onclick="deleteTransaction(${index})">Excluir</button></td>
+    `;
+
+    transactionList.appendChild(row);
+  });
+}
+
+function deleteTransaction(index) {
+  transactions.splice(index, 1);
+  localStorage.setItem('transactions', JSON.stringify(transactions));
+  updateSummary();
+  renderTransactions();
 }
 
 function updateChart() {
-  const categories = [...new Set(transactions.map(t => t.category))];
-  const data = categories.map(c => transactions
-    .filter(t => t.category === c)
-    .reduce((sum, t) => sum + t.amount, 0));
+  const ctx = document.getElementById('transactionChart').getContext('2d');
+  const income = transactions.filter(t => t.type === 'income').reduce((acc, curr) => acc + curr.amount, 0);
+  const expenses = transactions.filter(t => t.type === 'expense').reduce((acc, curr) => acc + curr.amount, 0);
 
-  if (chart) chart.destroy();
+  if (window.transactionChart) {
+    if (typeof window.transactionChart.destroy === 'function') {
+      window.transactionChart.destroy();
+    }
+  }
 
-  chart = new Chart(transactionChart, {
-    type: "pie",
+  window.transactionChart = new Chart(ctx, {
+    type: 'doughnut',
     data: {
-      labels: categories,
+      labels: ['Receitas', 'Despesas'],
       datasets: [{
-        data,
-        backgroundColor: ["#ff6384", "#36a2eb", "#cc65fe", "#ffce56"],
-        hoverOffset: 4
+        data: [income, expenses],
+        backgroundColor: ['#4caf50', '#f44336']
       }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: 'top'
+        }
+      }
     }
   });
 }
 
-function filterTransactions() {
-  const category = document.getElementById("categoryFilter").value;
-  const type = document.getElementById("typeFilter").value;
+document.addEventListener('DOMContentLoaded', () => {
+  updateSummary();
+  renderTransactions();
+});
 
-  const filteredTransactions = transactions.filter(t =>
-    (!category || t.category === category) &&
-    (!type || t.type === type)
-  );
-
-  renderFilteredTransactions(filteredTransactions);
-}
-
-function renderFilteredTransactions(filteredTransactions) {
-  const tbody = document.getElementById("transaction-list");
-  tbody.innerHTML = filteredTransactions.length
-    ? filteredTransactions.map((t, i) =>
-      `<tr>
-        <td>${t.description}</td>
-        <td>${t.category}</td>
-        <td>${t.type === "income" ? "Receita" : "Despesa"}</td>
-        <td>R$ ${t.amount.toFixed(2)}</td>
-        <td><button onclick="deleteTransaction(${i})">Excluir</button></td>
-      </tr>`).join("")
-    : `<tr><td colspan="5" style="text-align: center; color: #999;">Sem transações</td></tr>`;
-}
-
-function exportData() {
-  const data = JSON.stringify(transactions, null, 2);
-  const blob = new Blob([data], { type: "application/json" });
-  const url = URL.createObjectURL(blob);
-
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = "transacoes.json";
-  a.click();
-
-  URL.revokeObjectURL(url);
-}
