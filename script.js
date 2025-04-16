@@ -332,7 +332,6 @@ function gerarGraficoEvolucao(evolucao, anos) {
 }
 
 const transactions = [];
-const transactionChart = document.getElementById("transactionChart").getContext("2d");
 let chart = null;
 
 function updateBalance() {
@@ -350,16 +349,48 @@ function updateBalance() {
 
 function renderTransactions() {
   const tbody = document.getElementById("transaction-list");
-  tbody.innerHTML = transactions.length
-    ? transactions.map((t, i) => `
-      <tr>
-        <td>${t.description}</td>
-        <td>${t.category}</td>
-        <td>${t.type === "income" ? "Receita" : "Despesa"}</td>
-        <td>R$ ${t.amount.toFixed(2)}</td>
-        <td><button onclick="deleteTransaction(${i})">Excluir</button></td>
-      </tr>`).join("")
-    : `<tr><td colspan="5" style="text-align: center; color: #999;">Sem transações</td></tr>`;
+  tbody.innerHTML = "";
+
+  if (transactions.length === 0) {
+    const row = document.createElement("tr");
+    const cell = document.createElement("td");
+    cell.colSpan = 5;
+    cell.style.textAlign = "center";
+    cell.style.color = "#999";
+    cell.textContent = "Sem transações";
+    row.appendChild(cell);
+    tbody.appendChild(row);
+    return;
+  }
+
+  transactions.forEach((t, i) => {
+    const row = document.createElement("tr");
+
+    const descCell = document.createElement("td");
+    descCell.textContent = t.description;
+    row.appendChild(descCell);
+
+    const catCell = document.createElement("td");
+    catCell.textContent = t.category;
+    row.appendChild(catCell);
+
+    const typeCell = document.createElement("td");
+    typeCell.textContent = t.type === "income" ? "Receita" : "Despesa";
+    row.appendChild(typeCell);
+
+    const amountCell = document.createElement("td");
+    amountCell.textContent = `R$ ${t.amount.toFixed(2)}`;
+    row.appendChild(amountCell);
+
+    const actionCell = document.createElement("td");
+    const deleteBtn = document.createElement("button");
+    deleteBtn.textContent = "Excluir";
+    deleteBtn.addEventListener("click", () => deleteTransaction(i));
+    actionCell.appendChild(deleteBtn);
+    row.appendChild(actionCell);
+
+    tbody.appendChild(row);
+  });
 }
 
 function deleteTransaction(index) {
@@ -370,13 +401,13 @@ function deleteTransaction(index) {
 }
 
 function addTransaction() {
-  const description = document.getElementById("description").value;
+  const description = document.getElementById("description").value.trim();
   const amount = parseFloat(document.getElementById("amount").value);
-  const category = document.getElementById("category").value;
+  const category = document.getElementById("category").value.trim();
   const type = document.getElementById("type").value;
 
-  if (!description || !amount || !category || !type) {
-    alert("Preencha todos os campos!");
+  if (!description || isNaN(amount) || !category || !type) {
+    alert("Preencha todos os campos corretamente!");
     return;
   }
 
@@ -388,32 +419,54 @@ function addTransaction() {
   document.getElementById("description").value = "";
   document.getElementById("amount").value = "";
   document.getElementById("category").value = "";
-  document.getElementById("type").value = "";
+  document.getElementById("type").value = "income";
 }
 
 function updateChart() {
+  const ctx = document.getElementById("transactionChart").getContext("2d");
+
   const categories = [...new Set(transactions.map(t => t.category))];
-  const data = categories.map(c => transactions
-    .filter(t => t.category === c)
-    .reduce((sum, t) => sum + t.amount, 0));
+  const data = categories.map(c =>
+    transactions
+      .filter(t => t.category === c)
+      .reduce((sum, t) => sum + t.amount, 0)
+  );
 
-  if (chart) chart.destroy();
+  if (chart) {
+    chart.destroy();
+  }
 
-  chart = new Chart(transactionChart, {
+  chart = new Chart(ctx, {
     type: "pie",
     data: {
       labels: categories,
       datasets: [{
         data,
-        backgroundColor: ["#ff6384", "#36a2eb", "#cc65fe", "#ffce56"],
+        backgroundColor: [
+          "#ff6384",
+          "#36a2eb",
+          "#cc65fe",
+          "#ffce56",
+          "#2ecc71",
+          "#e74c3c",
+          "#3498db"
+        ],
         hoverOffset: 4
       }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: "bottom"
+        }
+      }
     }
   });
 }
 
 function filterTransactions() {
-  const category = document.getElementById("categoryFilter").value;
+  const category = document.getElementById("categoryFilter").value.trim();
   const type = document.getElementById("typeFilter").value;
 
   const filteredTransactions = transactions.filter(t =>
@@ -426,16 +479,48 @@ function filterTransactions() {
 
 function renderFilteredTransactions(filteredTransactions) {
   const tbody = document.getElementById("transaction-list");
-  tbody.innerHTML = filteredTransactions.length
-    ? filteredTransactions.map((t, i) => `
-      <tr>
-        <td>${t.description}</td>
-        <td>${t.category}</td>
-        <td>${t.type === "income" ? "Receita" : "Despesa"}</td>
-        <td>R$ ${t.amount.toFixed(2)}</td>
-        <td><button onclick="deleteTransaction(${i})">Excluir</button></td>
-      </tr>`).join("")
-    : `<tr><td colspan="5" style="text-align: center; color: #999;">Sem transações</td></tr>`;
+  tbody.innerHTML = "";
+
+  if (filteredTransactions.length === 0) {
+    const row = document.createElement("tr");
+    const cell = document.createElement("td");
+    cell.colSpan = 5;
+    cell.style.textAlign = "center";
+    cell.style.color = "#999";
+    cell.textContent = "Sem transações";
+    row.appendChild(cell);
+    tbody.appendChild(row);
+    return;
+  }
+
+  filteredTransactions.forEach((t, i) => {
+    const row = document.createElement("tr");
+
+    const descCell = document.createElement("td");
+    descCell.textContent = t.description;
+    row.appendChild(descCell);
+
+    const catCell = document.createElement("td");
+    catCell.textContent = t.category;
+    row.appendChild(catCell);
+
+    const typeCell = document.createElement("td");
+    typeCell.textContent = t.type === "income" ? "Receita" : "Despesa";
+    row.appendChild(typeCell);
+
+    const amountCell = document.createElement("td");
+    amountCell.textContent = `R$ ${t.amount.toFixed(2)}`;
+    row.appendChild(amountCell);
+
+    const actionCell = document.createElement("td");
+    const deleteBtn = document.createElement("button");
+    deleteBtn.textContent = "Excluir";
+    deleteBtn.addEventListener("click", () => deleteTransaction(i));
+    actionCell.appendChild(deleteBtn);
+    row.appendChild(actionCell);
+
+    tbody.appendChild(row);
+  });
 }
 
 function exportData() {
