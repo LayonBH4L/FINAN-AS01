@@ -716,9 +716,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard Financeiro</title>
-  <link rel="stylesheet" href="styles.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="container">
@@ -743,10 +742,6 @@
     <div class="filter">
       <select id="categoryFilter">
         <option value="">Todas Categorias</option>
-        <option value="Alimentação">Alimentação</option>
-        <option value="Transporte">Transporte</option>
-        <option value="Lazer">Lazer</option>
-        <option value="Outros">Outros</option>
       </select>
       <select id="typeFilter">
         <option value="">Todos Tipos</option>
@@ -785,6 +780,7 @@
         <option value="Transporte">Transporte</option>
         <option value="Lazer">Lazer</option>
         <option value="Outros">Outros</option>
+        <option value="Nova">Nova Categoria...</option>
       </select>
       <select id="type">
         <option value="income">Receita</option>
@@ -799,5 +795,7 @@
 
     <button onclick="exportData()">Exportar Dados</button>
   </div>
+
+  <script src="scripts.js"></script>
 </body>
 </html>
