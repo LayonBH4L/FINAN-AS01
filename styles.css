@@ -1258,51 +1258,6 @@ canvas {
     height: 400px;
 }
 
-
-/*consultoria-financeira*/
-.consultoria{
-    margin-left: 0%; /* Alinha o texto mais para o canto esquerdo */
-    max-width: 100%; /* Limita a largura para centralizar melhor no layout */
-    text-align: left; /* Garante que o texto esteja alinhado à esquerda */
-    padding: 20px;
-    display: flex;
-    flex-wrap: wrap; /* Garante que, em telas menores, os itens não se sobreponham */
-    justify-content: space-between; /* Distribui o espaço entre os itens */
-    gap: 0px; /* Espaçamento entre as seções */
-    margin-bottom: 30px;
-}
-
-.consultoria h2 {
-    font-size: 2rem;
-    color: #fff;
-    margin-bottom: 20px;
-    width: 105%; /* Faz com que o título ocupe toda a largura */
-    text-align: center; /* Alinha o título ao centro */
-}
-
-.consultoria {
-    background-color:  #201f1f;
-    padding: 20px;
-    border-radius: 8px;
-    width: calc(100% - 15px); /* 50% da largura, subtraindo a metade do espaçamento */
-    box-shadow: 0 4px 15px  #242323;
-    display: flex;
-    flex-direction: column; /* Garante que o conteúdo dentro da guia seja vertical */
-    justify-content: flex-start; /* Alinha o conteúdo ao topo */
-}
-
-.consultoria h3 {
-    color: #fff;
-    font-size: 1.6rem;
-    margin-bottom: 10px;
-}
-
-.consultoria p {
-    color: #ccc;
-    font-size: 1rem;
-    margin-bottom: 10px;
-}
-
 /* Responsividade para telas pequenas */
 @media (max-width: 768px) {
     .consultoria {
@@ -1471,4 +1426,47 @@ h1 {
   background-color: #fd50e0;
   transform: scale(1.05);
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+/*consultoria-financeira*/
+.consultoria{
+    margin-left: 0%; /* Alinha o texto mais para o canto esquerdo */
+    max-width: 100%; /* Limita a largura para centralizar melhor no layout */
+    text-align: left; /* Garante que o texto esteja alinhado à esquerda */
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap; /* Garante que, em telas menores, os itens não se sobreponham */
+    justify-content: space-between; /* Distribui o espaço entre os itens */
+    gap: 0px; /* Espaçamento entre as seções */
+    margin-bottom: 30px;
+}
+
+.consultoria h2 {
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 20px;
+    width: 105%; /* Faz com que o título ocupe toda a largura */
+    text-align: center; /* Alinha o título ao centro */
+}
+
+.consultoria {
+    background-color:  #201f1f;
+    padding: 20px;
+    border-radius: 8px;
+    width: calc(100% - 15px); /* 50% da largura, subtraindo a metade do espaçamento */
+    box-shadow: 0 4px 15px  #242323;
+    display: flex;
+    flex-direction: column; /* Garante que o conteúdo dentro da guia seja vertical */
+    justify-content: flex-start; /* Alinha o conteúdo ao topo */
+}
+
+.consultoria h3 {
+    color: #fff;
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+}
+
+.consultoria p {
+    color: #ccc;
+    font-size: 1rem;
+    margin-bottom: 10px;
 }
